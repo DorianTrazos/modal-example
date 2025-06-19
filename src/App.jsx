@@ -1,19 +1,23 @@
-import Button from './components/button/Button';
+import { useState } from 'react';
+import Modal from './components/modal/Modal';
 import { GlobalStyles } from './styles/GlobalStyles';
 
 const App = () => {
+	const [modalContent, setModalContent] = useState();
 	return (
 		<div>
 			<GlobalStyles />
-			<Button color='red' fontSize='20px'>
-				Click Me Red!
-			</Button>
-			<Button color='blue' fontSize='30px'>
-				Click Me Blue!
-			</Button>
-			<Button color='green' fontSize='10px'>
-				Click Me Blue!
-			</Button>
+
+			<button
+				style={{
+					position: 'absolute',
+					zIndex: 10
+				}}
+				onClick={() => setModalContent(<h1>MODAL DE ABBY</h1>)}
+			>
+				Open Modal
+			</button>
+			<Modal>{modalContent}</Modal>
 		</div>
 	);
 };
